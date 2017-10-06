@@ -1,0 +1,9 @@
+﻿  Source.cpp
+Source.obj : error LNK2019: símbolo externo __imp__MPI_Comm_size sin resolver al que se hace referencia en la función _main
+Source.obj : error LNK2019: símbolo externo __imp__MPI_Comm_rank sin resolver al que se hace referencia en la función _main
+Source.obj : error LNK2019: símbolo externo __imp__MPI_Get_processor_nameA sin resolver al que se hace referencia en la función _main
+Source.obj : error LNK2019: símbolo externo __imp__MPI_InitA sin resolver al que se hace referencia en la función _main
+Source.obj : error LNK2019: símbolo externo __imp__MPI_Finalize sin resolver al que se hace referencia en la función _main
+C:\Program Files\DeinoMPI\lib\cxx.lib : warning LNK4272: el tipo de máquina de biblioteca 'x64' está en conflicto con el tipo de máquina de destino 'X86'
+C:\Program Files\DeinoMPI\lib\mpi.lib : warning LNK4272: el tipo de máquina de biblioteca 'x64' está en conflicto con el tipo de máquina de destino 'X86'
+C:\Users\JESUS\Documents\ARPA\Prueba00\Debug\Prueba00.exe : fatal error LNK1120: 5 externos sin resolver
