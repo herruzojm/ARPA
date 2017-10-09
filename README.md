@@ -6,3 +6,5 @@
 **Practica 02**: Suma de matrices
 
 **Practica 03**: Producto escalar de dos vectores
+
+**Practica 04**: Suma de matrices mediante topologias cartesianas
