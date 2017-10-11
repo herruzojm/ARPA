@@ -10,3 +10,5 @@
 **Practica 04**: Suma de matrices mediante topologias cartesianas
 
 **Practica 05**: Lectura y escritura en fichero
+
+**Practica 06**: Envio y recepcion no bloqueantes
