@@ -12,3 +12,5 @@
 **Practica 05**: Lectura y escritura en fichero
 
 **Practica 06**: Envio y recepcion no bloqueantes
+
+**Practica 07**: Tipos de datos derivados
