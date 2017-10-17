@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 	int numero = -1;
 	int factorial;
 	int tag = 0;
+	int flag = 0;
 	MPI_Request peticion;
 	MPI_Status estado;
 	MPI_Init(&argc, &argv);
@@ -33,7 +34,9 @@ int main(int argc, char *argv[])
 				printf("\n Calculando factorial, espere por favor \n");
 				fflush(stdout);
 				//Ahora esperamos el resultado del proceso 1 y mostramos el resultado
-				MPI_Wait(&peticion, &estado);
+				do {
+					MPI_Test(&peticion, &flag, &estado);
+				} while (flag != 1);
 				MPI_Recv(&factorial, 1, MPI_INT, 1, tag, MPI_COMM_WORLD, &estado);
 				printf("\n El resultado es %d \n\n\n", factorial);
 				fflush(stdout);
