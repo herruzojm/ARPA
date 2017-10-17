@@ -8,6 +8,20 @@
 
 void MostrarMatriz(int matriz[NUMERO_ELEMENTOS][NUMERO_ELEMENTOS]);
 
+void MostrarMatriz(int matriz[NUMERO_ELEMENTOS][NUMERO_ELEMENTOS])
+{
+	for (int i = 0; i < NUMERO_ELEMENTOS; i++)
+	{
+		for (int j = 0; j < NUMERO_ELEMENTOS; j++)
+		{
+			printf("[%3d] ", matriz[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+	fflush(stdout);
+}
+
 int main(int argc, char** argv)
 
 {
@@ -90,26 +104,15 @@ int main(int argc, char** argv)
 	MPI_Finalize();
 }
 
-void MostrarMatriz(int matriz[NUMERO_ELEMENTOS][NUMERO_ELEMENTOS])
-{
-	for (int i = 0; i < NUMERO_ELEMENTOS; i++)
-	{
-		for (int j = 0; j < NUMERO_ELEMENTOS; j++)
-		{
-			printf("[%3d] ", matriz[i][j]);
-		}
-		printf("\n");
-	}
-	printf("\n");
-	fflush(stdout);
-}
+
+
+
 
 //#define NUMERO_ELEMENTOS 6
 //#define NUMERO_PROCESOS 3
 //
 //void MostrarMatriz(int matriz[NUMERO_ELEMENTOS][NUMERO_ELEMENTOS]);
-//void MostrarFila(int matriz[NUMERO_ELEMENTOS]);
-//void MostrarFila(MPI_Aint matriz[NUMERO_ELEMENTOS]);
+//
 //
 //int main(int argc, char *argv[])
 //{
@@ -137,27 +140,26 @@ void MostrarMatriz(int matriz[NUMERO_ELEMENTOS][NUMERO_ELEMENTOS])
 //	}
 //	else
 //	{				
-//		//Enviamos matriz triangular inferior
-//		//La longitud de cada bloque sera su numero de fila + 1 (por ser de indice 0)
-//		//El desplazamiento sera el numero de elementos de la fila por el tamaño del entero
-//		for (int i = 0; i < NUMERO_ELEMENTOS; i++)
-//		{
-//			vectorLongitudBloque[i] = i + 1;
-//			vectorDesplazamientoBloque[i] = (NUMERO_ELEMENTOS * i) * sizeof(int);
-//			vectorTipos[i] = MPI_INT;
-//		}		
-//		
-//		MPI_Type_struct(NUMERO_ELEMENTOS, vectorLongitudBloque, vectorDesplazamientoBloque, vectorTipos, &matrizTriangularInferior);
-//		MPI_Type_commit(&matrizTriangularInferior);
-//		
 //		//Matriz triangular superior
 //		for (int i = 0; i < NUMERO_ELEMENTOS; i++)
 //		{
 //			vectorLongitudBloque[i] = NUMERO_ELEMENTOS - i;
-//			vectorDesplazamientoBloque[i] = (i + (NUMERO_ELEMENTOS * i)) * sizeof(int);
+//			vectorDesplazamientoBloque[i] = i * NUMERO_ELEMENTOS * sizeof(int); //(i + (NUMERO_ELEMENTOS * i)) * sizeof(int);
+//			vectorTipos[i] = MPI_INT;
 //		}
 //		MPI_Type_struct(NUMERO_ELEMENTOS, vectorLongitudBloque, vectorDesplazamientoBloque, vectorTipos, &matrizTriangularSuperior);
-//		MPI_Type_commit(&matrizTriangularSuperior);			
+//		MPI_Type_commit(&matrizTriangularSuperior);
+//
+//		//Enviamos matriz triangular inferior
+//		for (int i = 0; i < NUMERO_ELEMENTOS; i++)
+//		{
+//			vectorLongitudBloque[i] = i + 1;
+//			vectorDesplazamientoBloque[i] = (NUMERO_ELEMENTOS * i) * sizeof(int);
+//			
+//		}		
+//		
+//		MPI_Type_struct(NUMERO_ELEMENTOS, vectorLongitudBloque, vectorDesplazamientoBloque, vectorTipos, &matrizTriangularInferior);
+//		MPI_Type_commit(&matrizTriangularInferior);				
 //
 //		if (mirango == 0)
 //		{
@@ -211,26 +213,6 @@ void MostrarMatriz(int matriz[NUMERO_ELEMENTOS][NUMERO_ELEMENTOS])
 //			printf("[%3d] ", matriz[i][j]);
 //		}
 //		printf("\n");
-//	}
-//	printf("\n");
-//	fflush(stdout);
-//}
-//
-//void MostrarFila(int matriz[NUMERO_ELEMENTOS])
-//{
-//	for (int i = 0; i < NUMERO_ELEMENTOS; i++)
-//	{
-//			printf("[%3d] ", matriz[i]);
-//	}
-//	printf("\n");
-//	fflush(stdout);
-//}
-//
-//void MostrarFila(MPI_Aint matriz[NUMERO_ELEMENTOS])
-//{
-//	for (int i = 0; i < NUMERO_ELEMENTOS; i++)
-//	{
-//		printf("[%3d] ", (int)matriz[i]);
 //	}
 //	printf("\n");
 //	fflush(stdout);
