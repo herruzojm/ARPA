@@ -14,3 +14,5 @@
 **Practica 06**: Envio y recepcion no bloqueantes
 
 **Practica 07**: Tipos de datos derivados
+
+**Practica 08**: Gestion dinamica de procesos
