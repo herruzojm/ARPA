@@ -26,18 +26,18 @@ int main(int argc, char *argv[])
 			scanf_s("%d", &numero);
 			fflush(stdout);
 			//Enviamos los datos al proceso 1 sin esperar el resultado
-			MPI_Isend(&numero, 1, MPI_INT, 1, tag, MPI_COMM_WORLD, &peticion);
+			MPI_Send(&numero, 1, MPI_INT, 1, tag, MPI_COMM_WORLD);
 			//Si el usuario nos dio el cero, no tenemos nada mas que hacer
 			if (numero != 0)
 			{				
 				//Mostramos mensaje de espera
 				printf("\n Calculando factorial, espere por favor \n");
-				fflush(stdout);
+				fflush(stdout);				
+				MPI_Irecv(&factorial, 1, MPI_INT, 1, 0, MPI_COMM_WORLD, &peticion);
 				//Ahora esperamos el resultado del proceso 1 y mostramos el resultado
 				do {
 					MPI_Test(&peticion, &flag, &estado);
 				} while (flag != 1);
-				MPI_Recv(&factorial, 1, MPI_INT, 1, tag, MPI_COMM_WORLD, &estado);
 				printf("\n El resultado es %d \n\n\n", factorial);
 				fflush(stdout);
 			}			

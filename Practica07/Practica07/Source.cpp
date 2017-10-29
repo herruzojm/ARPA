@@ -27,7 +27,8 @@ int main(int argc, char** argv)
 {
 
 	int mirango, tag = 0;
-	int vectorLongitudBloque[NUMERO_ELEMENTOS], vectorDesplazamientoBloque[NUMERO_ELEMENTOS];
+	int vectorLongitudBloque[NUMERO_ELEMENTOS];
+	int vectorDesplazamientoBloque[NUMERO_ELEMENTOS];
 	int matriz[NUMERO_ELEMENTOS][NUMERO_ELEMENTOS];
 	MPI_Datatype matrizTriangularSuperior, matrizTriangularInferior;
 	MPI_Request peticion;
@@ -54,7 +55,7 @@ int main(int argc, char** argv)
 	MPI_Type_indexed(NUMERO_ELEMENTOS, vectorLongitudBloque, vectorDesplazamientoBloque, MPI_INT, &matrizTriangularInferior);
 	MPI_Type_commit(&matrizTriangularInferior);
 
-	if (!mirango)
+	if (mirango == 0)
 	{
 		//iniciamos la matriz con valores aleatorios
 		srand((int)time(NULL));
