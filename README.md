@@ -18,3 +18,5 @@
 **Practica 08**: Gestion dinamica de procesos
 
 **Practica 09**: Aplicacion practica: multiplicacion de matrices
+
+**Practica 10**: Medida del rendimiento
